@@ -31,12 +31,11 @@
 
     <script type="text/javascript">
       var margin = { top: 50, right: 0, bottom: 100, left: 130 },
-          width = 3000 - margin.left - margin.right,
+          width = 2500 - margin.left - margin.right,
           height = 1000 - margin.top - margin.bottom,
           gridSize = Math.floor(width / 80),
-          legendElementWidth = gridSize*2,
+          legendElementWidth = gridSize*3,
           buckets = 9,
-          // colors = [ "#ddcb53","#c5a32f","#7d5836","#963b20","#7c2626","#236250","#491d37","#274a21","#2f254a"],
           colors = colorbrewer.Oranges[9],
           days = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                   "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
@@ -70,9 +69,6 @@
                 .attr("y", 0)
                 .style("text-anchor", "middle")
                 .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-                // .attr("transform", "translate(-10," + gridSize / 1.5 + ")")
-                // .attr("class", function (d, i) { return "dayLabel mono axis axis-workweek" });
-                // .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
 
           var timeLabels = svg.selectAll(".timeLabel")
               .data(times)
@@ -82,10 +78,6 @@
                 .attr("y", function(d, i) { return i * gridSize; })
                 .style("text-anchor", "end")
                 .attr("transform", "translate(-10," + gridSize / 1.5 + ")")
-                // .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-                // .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
-
-
 
           var heatMap = svg.selectAll(".hour")
               .data(aggregatedData)
