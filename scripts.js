@@ -4,7 +4,7 @@ var groupData = function(data){
 
   for(var i = 0; i < 30; i++){
     for(var j = 0; j < 24; j++){
-      groupedData.push({day: i, hour: j ,total: 0});
+      groupedData.push({day: i +1 , hour: j ,total: 0});
     }
   }
 
